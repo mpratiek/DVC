@@ -4,5 +4,7 @@ base:
 
 model_params:
   ElasticNet:
-    alpha: 0.5
-    l1_ratio: 0.5
+    alpha: 0.1
+    l1_ratio: 0.4
+
+

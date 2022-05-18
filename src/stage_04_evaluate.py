@@ -53,6 +53,19 @@ def evaluate(config_path, params_path):
         "mae": mae,
         "r2": r2,
     }
+
+    scores_file = config["reports"]["scores"]
+
+    with open(scores_file, "w") as f:
+        scores = {
+            "rmse": rmse,
+            "mae": mae,
+            "r2": r2,
+        }
+
+        json.dump(scores, f, indent=4)
+
+
     save_reports(report=scores, report_path=scores_filepath)
 
 

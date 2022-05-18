@@ -4,6 +4,7 @@ import pandas as pd
 import os
 from sklearn.linear_model import ElasticNet
 import joblib
+import json
 
 
 def train(config_path, params_path):
@@ -25,6 +26,17 @@ def train(config_path, params_path):
     alpha = params["model_params"]["ElasticNet"]["alpha"]
     l1_ratio = params["model_params"]["ElasticNet"]["l1_ratio"]
     random_state = params["base"]["random_state"]
+
+    params_file = config["reports"]["params"]
+    with open(params_file, "w") as f:
+        params = {
+            "alpha": alpha,
+            "l1_ratio": l1_ratio,
+            "random_state": random_state
+        }
+
+        json.dump(params, f, indent = 4)
+
 
     lr = ElasticNet(alpha=alpha, l1_ratio=l1_ratio, random_state=random_state)
     lr.fit(train_x, train_y)

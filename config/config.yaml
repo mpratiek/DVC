@@ -1,4 +1,4 @@
-data_source: winequality-red.csv #http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
+data_source: data_given\winequality-red.csv #http://archive.ics.uci.edu/ml/machine-learning-databases/wine-quality/winequality-red.csv
 
 artifacts:
   artifacts_dir: artifacts
@@ -16,3 +16,8 @@ artifacts:
 
   reports_dir: reports_dir
   scores: scores.json
+
+
+reports:
+  params: report/params.json
+  scores: report/scores.json
